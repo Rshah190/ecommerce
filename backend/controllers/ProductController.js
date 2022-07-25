@@ -1,4 +1,5 @@
 import  Product from'../models/ProductModel.js';
+import Errorhandler from '../utils/errorhandler.js';
 
 class ProductController{
 
@@ -24,15 +25,18 @@ class ProductController{
 
     //update Product
     static updateProduct = async(req,res,next)=>{
-        let  product= await Product.findById(req.params.id)
+        let  product= await Product.findById(req.params.id);
         //check product is exits or not
         if(!product)
         {
-            return res.status(204).json({
-                success:false,
-                mssage:'Product Not found',
+            // return res.status(204).json({
+            //     success:false,
+            //     mssage:'Product Not found',
 
-            });
+            // });
+
+
+            return next(new Errorhandler('Product not found',404));
         }
 
         product = await Product.findByIdAndUpdate(req.params.id, req.body, {
@@ -74,11 +78,13 @@ class ProductController{
         //check product is exits or not
         if(!product)
         {
-            return  res.status(204).json({
-                success:false,
-                mssage:'Product Not found',
+            //  res.status(200).json({
+            //     success:false,
+            //     mssage:'Product Not found',
 
-            });
+            // });
+            // return next(new Errorhandler('Product not found',404));
+
         }
         else{
             res.status(200).json({
