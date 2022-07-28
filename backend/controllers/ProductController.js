@@ -1,5 +1,6 @@
 import  Product from'../models/ProductModel.js';
-import Errorhandler from '../utils/errorhandler.js';
+import ErrorHandler from '../utils/errorhandler.js';
+import catchAsyncFunction from '../middleware/catchAsyncError';
 
 class ProductController{
 
@@ -34,9 +35,7 @@ class ProductController{
             //     mssage:'Product Not found',
 
             // });
-
-
-            return next(new Errorhandler('Product not found',404));
+            return next(new ErrorHandler('Product not found',404));
         }
 
         product = await Product.findByIdAndUpdate(req.params.id, req.body, {
@@ -57,11 +56,7 @@ class ProductController{
         //check product is exits or not
         if(!product)
         {
-            return res.status(204).json({
-                success:false,
-                mssage:'Product Not found',
-
-            });
+            return next(new ErrorHandler('Product not found',404));
         }
 
         await product.remove();
@@ -83,7 +78,7 @@ class ProductController{
             //     mssage:'Product Not found',
 
             // });
-            // return next(new Errorhandler('Product not found',404));
+            return next(new ErrorHandler('Product not found',404));
 
         }
         else{
