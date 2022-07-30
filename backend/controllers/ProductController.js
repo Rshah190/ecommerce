@@ -1,11 +1,12 @@
 import  Product from'../models/ProductModel.js';
 import ErrorHandler from '../utils/errorhandler.js';
-import catchAsyncFunction from '../middleware/catchAsyncError';
+import catchAsyncFunction from '../middleware/catchAsyncError.js';
+import ApiFeatures from '../utils/apifeatures.js';
 
 class ProductController{
 
     // create Product
-    static createProduct  = async (req,res,next) =>{
+    static createProduct  = catchAsyncFunction(async (req,res,next) =>{
 
         const document = new Product(req.body);
         const product_response = await document.save();
@@ -14,18 +15,22 @@ class ProductController{
             success:true,
             product_response
         });
-    }
+    });
 
     // get all products
-    static getAllproducts= async(req,res)=>{
+    static getAllproducts= catchAsyncFunction(async(req,res)=>{
 
-        const products= await Product.find();
+       const resultPerPage= 5;
+       const productCount = await Product.countDocuments();
+       const apifeatures= new ApiFeatures(Product.find(),req.query).search().filter().pagination(resultPerPage);
+        // const products= await Product.find();
+        const products= await apifeatures.query;
 
-        res.status(200).json({products,message:"Product  list fetch Successfully"});
-    }
+        res.status(200).json({products,productCount,message:"Product  list fetch Successfully"});
+    });
 
     //update Product
-    static updateProduct = async(req,res,next)=>{
+    static updateProduct = catchAsyncFunction(async(req,res,next)=>{
         let  product= await Product.findById(req.params.id);
         //check product is exits or not
         if(!product)
@@ -48,10 +53,10 @@ class ProductController{
             success:true,
             product
         })
-    }
+    });
 
     //delete Product
-    static deleteProduct = async(req,res,next)=>{
+    static deleteProduct = catchAsyncFunction(async(req,res,next)=>{
         let  product= await Product.findById(req.params.id)
         //check product is exits or not
         if(!product)
@@ -65,10 +70,10 @@ class ProductController{
             message:'Product is deleted'
 
         })
-    }
+    });
     
     //product details 
-    static productDetails=async (req,res,next)=>{
+    static productDetails= catchAsyncFunction(async (req,res,next)=>{
         let  product= await Product.findById(req.params.id)
         //check product is exits or not
         if(!product)
@@ -89,6 +94,6 @@ class ProductController{
             })
         }
 
-    }
+    });
 }
 export default ProductController;
