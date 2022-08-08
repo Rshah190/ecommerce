@@ -14,7 +14,7 @@ const errorFunction= (err,req,res,next)=>{
     }
 
     res.status(err.statusCode).json({
-        success:false,
+        success:false, 
         message:err.message,
         error:err,
         full_error:err.stack,

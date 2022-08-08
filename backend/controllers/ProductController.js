@@ -8,6 +8,7 @@ class ProductController{
     // create Product
     static createProduct  = catchAsyncFunction(async (req,res,next) =>{
 
+        req.body.user=req.user.id;
         const document = new Product(req.body);
         const product_response = await document.save();
         res.status(201).json({

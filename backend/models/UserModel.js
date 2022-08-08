@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import validator from 'validator';
-
+import brypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -42,5 +44,42 @@ const userSchema = new mongoose.Schema({
       resetPasswordToken: String,
       resetPasswordExpire: Date,
 });
+
+
+
+userSchema.pre("save",async function(next){
+  if(!this.isModified('password'))
+  {
+    next();
+  }
+  this.password= await brypt.hash(this.password,10);
+});
+
+
+// create jwt token
+userSchema.methods.getJWTToken=function(){
+  return jwt.sign({id:this._id},process.env.JWT_SECRET,{
+    expiresIn:process.env.JWT_EXPIRES
+
+  });
+}
+//compare password
+userSchema.methods.comparePassword= async function(enterPassword){
+  return await brypt.compare(enterPassword,this.password);
+
+}
+
+//Genrating reset password token
+userSchema.methods.getResetPasswordToken= function(){
+  // genrating token
+  const resetToken=crypto.randomBytes(20).toString("hex");
+  //hashing and adding resetPasswordToken to userSchema
+  this.resetPasswordToken=crypto.createHash("sha256").update(resetToken).digest("hex");
+  this.resetPasswordExpire=Date.now()+ 15 *60 *1000;
+  return resetToken;
+}
+
+  
+
 
 export default mongoose.model("User",userSchema);
