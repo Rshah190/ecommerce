@@ -1,25 +1,23 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const connectDatabase =()=>{
+const connectDatabase = () => {
+  // mongoose.connect(process.env.DATABASE_URL,{
+  //     useNewUrlParser:true,
+  //     useUnifiedTopology:true,
 
-    // mongoose.connect(process.env.DATABASE_URL,{
-    //     useNewUrlParser:true,
-    //     useUnifiedTopology:true,
-      
-    // }).then((data)=>{
-    //     console.log(`mongodb connected:${data.connection.host}`);
-    // }).catch((err)=>{
-    //     console.log(err);
-    // });
+  // }).then((data)=>{
+  //     console.log(`mongodb connected:${data.connection.host}`);
+  // }).catch((err)=>{
+  //     console.log(err);
+  // });
 
-
-    mongoose.connect(process.env.DATABASE_URL,{
-        useNewUrlParser:true,
-        useUnifiedTopology:true,
-      
-    }).then((data)=>{
-        console.log(`mongodb connected:${data.connection.host}`);
+  mongoose
+    .connect(process.env.DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then((data) => {
+      console.log(`mongodb connected:${data.connection.host}`);
     });
-        
-}
+};
 export default connectDatabase;

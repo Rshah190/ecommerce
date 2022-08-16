@@ -8,8 +8,11 @@ app.use(cookieParser());
 // import routes 
 import product from './routes/product.js';
 import user from './routes/User.js'
+import order from './routes/Order.js';
 app.use('/api/v1/',product);
 app.use('/api/v1/user',user);
+app.use('/api/v1/order',order);
+
 
 // apply errror handler middleware
 app.use(errorMiddleware);
