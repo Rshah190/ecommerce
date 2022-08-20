@@ -46,7 +46,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\":\"rakeshshah190@gmail.com\",\n    \"password\":\"password\"\n}",
+							"raw": "{\n    \"email\":\"rakeshshah190@gmail.com\",\n    \"password\":\"123456789\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -188,67 +188,229 @@
 				{
 					"name": "Reset password",
 					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\":\"12345678\",\n    \"confirmPassword\":\"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/password/reset/1077cb9ce32f3b735259d3bfba9641246a1c9d08",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"password",
+								"reset",
+								"1077cb9ce32f3b735259d3bfba9641246a1c9d08"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
 						"method": "GET",
 						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "user detaills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"old_password\":\"asakss\",\n    \"newPassword\":\"123456789\",\n    \"confirmPassword\":\"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/update/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"update",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"godie\",\n    \"email\":\"godie@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/update/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"update",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/admin/details/62f72dd2823c6d04087e3df2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"admin",
+								"details",
+								"62f72dd2823c6d04087e3df2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/user/admin/delete/62f72dd2823c6d04087e3df2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"admin",
+								"delete",
+								"62f72dd2823c6d04087e3df2"
+							]
+						}
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "getAllProducts",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/api/v1/products",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"v1",
-						"products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add product",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\":\"Reebok\",\n    \"price\":12800,\n    \"description\":\"Hello Puma Product is cool\",\n    \"category\":\"Shoes\",\n    \"images\":{\n        \"public_id\":\"123\",\n        \"url\":\"Sampleurl\"\n    }\n\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Products",
+			"item": [
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:4000/api/v1/add/product",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"v1",
-						"add",
-						"product"
-					]
-				}
-			},
-			"response": [
 				{
 					"name": "Add product",
-					"originalRequest": {
+					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -275,121 +437,715 @@
 							]
 						}
 					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "389"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"185-gx2xinGHnU/PpwgafcU5083OFR4\""
-						},
-						{
-							"key": "Date",
-							"value": "Sun, 07 Aug 2022 12:13:43 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=5"
+							"name": "Add product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Reebok\",\n    \"price\":12800,\n    \"description\":\"Hello Puma Product is cool\",\n    \"category\":\"Shoes\",\n    \"images\":{\n        \"public_id\":\"123\",\n        \"url\":\"Sampleurl\"\n    }\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/add/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"add",
+										"product"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "389"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"185-gx2xinGHnU/PpwgafcU5083OFR4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 Aug 2022 12:13:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"success\": true,\n    \"product_response\": {\n        \"name\": \"Reebok\",\n        \"description\": \"Hello Puma Product is cool\",\n        \"price\": 12800,\n        \"rating\": 0,\n        \"images\": [\n            {\n                \"public_id\": \"123\",\n                \"url\": \"Sampleurl\",\n                \"_id\": \"62efac770f7989dbdfb8660a\"\n            }\n        ],\n        \"category\": \"Shoes\",\n        \"stock\": 0,\n        \"numOfReviews\": 0,\n        \"user\": \"62e5f5be9cb64eb4c41d5343\",\n        \"_id\": \"62efac770f7989dbdfb86609\",\n        \"reviews\": [],\n        \"createdAt\": \"2022-08-07T12:13:43.340Z\",\n        \"__v\": 0\n    }\n}"
 						}
-					],
-					"cookie": [],
-					"body": "{\n    \"status\": 200,\n    \"success\": true,\n    \"product_response\": {\n        \"name\": \"Reebok\",\n        \"description\": \"Hello Puma Product is cool\",\n        \"price\": 12800,\n        \"rating\": 0,\n        \"images\": [\n            {\n                \"public_id\": \"123\",\n                \"url\": \"Sampleurl\",\n                \"_id\": \"62efac770f7989dbdfb8660a\"\n            }\n        ],\n        \"category\": \"Shoes\",\n        \"stock\": 0,\n        \"numOfReviews\": 0,\n        \"user\": \"62e5f5be9cb64eb4c41d5343\",\n        \"_id\": \"62efac770f7989dbdfb86609\",\n        \"reviews\": [],\n        \"createdAt\": \"2022-08-07T12:13:43.340Z\",\n        \"__v\": 0\n    }\n}"
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Puma\",\n    \"price\":13800,\n    \"description\":\"Hello Puma Product is cool\",\n    \"category\":\"Shoes\",\n    \"images\":{\n        \"public_id\":\"123\",\n        \"url\":\"Sampleurl\"\n    }\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/update/product/62dd26685d68733a4102d04d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"update",
+								"product",
+								"62dd26685d68733a4102d04d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/delete/product/62dd26685d68733a4102d04d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"product",
+								"62dd26685d68733a4102d04d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/product/details/62dd31c58f7178ecba3d1a5d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"details",
+								"62dd31c58f7178ecba3d1a5d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create/update review",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\":\"62dd31c58f7178ecba3d1a5d\",\n    \"rating\":\"4\",\n    \"comment\":\"Product is very nice\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/product/review",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get All reviews of Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/product/allReviews?id=62dd31c58f7178ecba3d1a5d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"allReviews"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "62dd31c58f7178ecba3d1a5d"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get All reviews of Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "id",
+										"value": "",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/product/allReviews?id=62dd31c58f7178ecba3d1a5d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"product",
+										"allReviews"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "62dd31c58f7178ecba3d1a5d"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "156"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9c-Ki7Tn+WVLgfOkBORtMBVYR27oYY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Aug 2022 14:40:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"reviews\": [\n        {\n            \"user\": \"62e5f5be9cb64eb4c41d5343\",\n            \"name\": \"godie\",\n            \"rating\": 4,\n            \"comment\": \"Product is very nice\",\n            \"_id\": \"62f7947a41e8284103bab1f1\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/delete/review?productId=62dd31c58f7178ecba3d1a5d&id=62f7947a41e8284103bab1f1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"delete",
+								"review"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "62dd31c58f7178ecba3d1a5d"
+								},
+								{
+									"key": "id",
+									"value": "62f7947a41e8284103bab1f1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "Update Product",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\":\"Puma\",\n    \"price\":13800,\n    \"description\":\"Hello Puma Product is cool\",\n    \"category\":\"Shoes\",\n    \"images\":{\n        \"public_id\":\"123\",\n        \"url\":\"Sampleurl\"\n    }\n\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Add Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"itemsPrice\":\"1200\",\n    \"taxPrice\":\"50\",\n    \"shippingPrice\":\"200\",\n    \"totalPrice\":\"1450\",\n    \"orderItems\":{\n        \"product\":\"62dd31c58f7178ecba3d1a5d\",\n        \"name\":\"Product1\",\n        \"price\":\"1200\",\n        \"image\":\"SampleImage\",\n        \"quantity\":\"1\"\n    },\n    \"shippingInfo\":{\n        \"country\":\"USA\",\n        \"address\":\"New york\",\n        \"city\":\"Londom\",\n        \"state\":\"USA\",\n        \"pinCode\":\"184201\",\n        \"phoneNo\":\"1234567890\"\n    },\n    \"paymentInfo\":{\n        \"id\":\"SamplePaymentInfo\",\n        \"status\":\"succeeded\"\n    }\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/order/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"create"
+							]
 						}
-					}
+					},
+					"response": [
+						{
+							"name": "Add Order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"itemsPrice\":\"1200\",\n    \"taxPrice\":\"50\",\n    \"shippingPrice\":\"200\",\n    \"totalPrice\":\"1450\",\n    \"orderItems\":{\n        \"product\":\"62dd31c58f7178ecba3d1a5d\",\n        \"name\":\"Product1\",\n        \"price\":\"1200\",\n        \"image\":\"SampleImage\",\n        \"quantity\":\"1\"\n    },\n    \"shippingInfo\":{\n        \"country\":\"USA\",\n        \"address\":\"New york\",\n        \"city\":\"Londom\",\n        \"state\":\"USA\",\n        \"pinCode\":\"184201\",\n        \"phoneNo\":\"1234567890\"\n    },\n    \"paymentInfo\":{\n        \"id\":\"SamplePaymentInfo\",\n        \"status\":\"succeeded\"\n    }\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/order/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "650"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28a-icAxK+lejzXQtq2mbIjf0KTimvk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Aug 2022 16:35:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"order\": {\n        \"shippingInfo\": {\n            \"address\": \"New york\",\n            \"city\": \"Londom\",\n            \"state\": \"USA\",\n            \"country\": \"USA\",\n            \"pinCode\": 184201,\n            \"phoneNo\": 1234567890\n        },\n        \"orderItems\": [\n            {\n                \"name\": \"Product1\",\n                \"price\": 1200,\n                \"quantity\": 1,\n                \"image\": \"SampleImage\",\n                \"product\": \"62dd31c58f7178ecba3d1a5d\",\n                \"_id\": \"62f7d2e09272b92aa094dee8\"\n            }\n        ],\n        \"user\": \"62e5f5be9cb64eb4c41d5343\",\n        \"paymentInfo\": {\n            \"id\": \"SamplePaymentInfo\",\n            \"status\": \"succeeded\"\n        },\n        \"paidAt\": \"2022-08-13T16:35:44.822Z\",\n        \"itemsPrice\": 1200,\n        \"taxPrice\": 50,\n        \"shippingPrice\": 200,\n        \"totalPrice\": 1450,\n        \"orderStatus\": \"Processing\",\n        \"_id\": \"62f7d2e09272b92aa094dee7\",\n        \"createdAt\": \"2022-08-13T16:35:44.827Z\",\n        \"__v\": 0\n    },\n    \"message\": \"Order Created Successfully!\"\n}"
+						}
+					]
 				},
-				"url": {
-					"raw": "http://localhost:4000/api/v1/update/product/62dd26685d68733a4102d04d",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"v1",
-						"update",
-						"product",
-						"62dd26685d68733a4102d04d"
+				{
+					"name": "my orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/order/single/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"single",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Orders by Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/order/all/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"all",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Orders by Admin",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/order/all/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"all",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "632"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"278-rNSQVuH4/Ch4CYs94BgyK6KwVT0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Aug 2022 17:36:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"totalAmount\": 1450,\n    \"orders\": [\n        {\n            \"shippingInfo\": {\n                \"address\": \"New york\",\n                \"city\": \"Londom\",\n                \"state\": \"USA\",\n                \"country\": \"USA\",\n                \"pinCode\": 184201,\n                \"phoneNo\": 1234567890\n            },\n            \"paymentInfo\": {\n                \"id\": \"SamplePaymentInfo\",\n                \"status\": \"succeeded\"\n            },\n            \"_id\": \"62f7d2e09272b92aa094dee7\",\n            \"orderItems\": [\n                {\n                    \"name\": \"Product1\",\n                    \"price\": 1200,\n                    \"quantity\": 1,\n                    \"image\": \"SampleImage\",\n                    \"product\": \"62dd31c58f7178ecba3d1a5d\",\n                    \"_id\": \"62f7d2e09272b92aa094dee8\"\n                }\n            ],\n            \"user\": \"62e5f5be9cb64eb4c41d5343\",\n            \"paidAt\": \"2022-08-13T16:35:44.822Z\",\n            \"itemsPrice\": 1200,\n            \"taxPrice\": 50,\n            \"shippingPrice\": 200,\n            \"totalPrice\": 1450,\n            \"orderStatus\": \"Processing\",\n            \"createdAt\": \"2022-08-13T16:35:44.827Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "order details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/order/details/62f7d2e09272b92aa094dee7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"details",
+								"62f7d2e09272b92aa094dee7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "order details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/api/v1/order/details/62f7d2e09272b92aa094dee7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"details",
+										"62f7d2e09272b92aa094dee7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "667"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29b-E/iHs+MJoASBqunzrcS5j1iN5/E\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Aug 2022 17:37:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"order\": {\n        \"shippingInfo\": {\n            \"address\": \"New york\",\n            \"city\": \"Londom\",\n            \"state\": \"USA\",\n            \"country\": \"USA\",\n            \"pinCode\": 184201,\n            \"phoneNo\": 1234567890\n        },\n        \"paymentInfo\": {\n            \"id\": \"SamplePaymentInfo\",\n            \"status\": \"succeeded\"\n        },\n        \"_id\": \"62f7d2e09272b92aa094dee7\",\n        \"orderItems\": [\n            {\n                \"name\": \"Product1\",\n                \"price\": 1200,\n                \"quantity\": 1,\n                \"image\": \"SampleImage\",\n                \"product\": \"62dd31c58f7178ecba3d1a5d\",\n                \"_id\": \"62f7d2e09272b92aa094dee8\"\n            }\n        ],\n        \"user\": {\n            \"_id\": \"62e5f5be9cb64eb4c41d5343\",\n            \"name\": \"godie\",\n            \"email\": \"rakeshshah190@gmail.com\"\n        },\n        \"paidAt\": \"2022-08-13T16:35:44.822Z\",\n        \"itemsPrice\": 1200,\n        \"taxPrice\": 50,\n        \"shippingPrice\": 200,\n        \"totalPrice\": 1450,\n        \"orderStatus\": \"Processing\",\n        \"createdAt\": \"2022-08-13T16:35:44.827Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update Status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":\"shipped\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/order/update/status/62f7d2e09272b92aa094dee7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"update",
+								"status",
+								"62f7d2e09272b92aa094dee7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update Status",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\":\"shipped\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/api/v1/order/update/status/62f7d2e09272b92aa094dee7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"order",
+										"update",
+										"status",
+										"62f7d2e09272b92aa094dee7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "16"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10-oV4hJxRVSENxc/wX8+mA4/Pe4tA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 13 Aug 2022 18:25:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true\n}"
+						}
 					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Product",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/api/v1/delete/product/62dd26685d68733a4102d04d",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"v1",
-						"delete",
-						"product",
-						"62dd26685d68733a4102d04d"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Product Details",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/api/v1/product/details/62dd31c58f7178ecba3d1a5d",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"v1",
-						"product",
-						"details",
-						"62dd31c58f7178ecba3d1a5d"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }
